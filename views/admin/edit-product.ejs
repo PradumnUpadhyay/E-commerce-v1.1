@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/add.css">
+
+</head>
+<%- include('../includes/routes.ejs') %>
+<main>
+    <form class="product-form" action="/admin/<%if(mode){%>edit-product <%} else {%>add-product<%}%>"
+        method="POST">
+        <div class="form-control">
+            <!-- Form submission relies on "name" and label pairing relies on "id".
+                 This is why you will often see <input> elements with the same value in both attributes. -->
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" value="<% if(mode){ %> <%= product.title %> <% } %>">
+
+        <div class="form-control">
+            <label for="imageURL">ImageURL</label>
+            <input type="text" name="imageURL" id="imageURL" value="<% if(mode){ %> <%=product.imageURL %> <% } %>">
+
+            <div class="form-control">
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" value="<% if(mode){ %><%= product.price %><% } %>"
+                    step="0.01">
+
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description"
+                        rows="5"><% if(mode){ %> <%=product.description %> <% } %></textarea>
+                </div>
+                <% if (mode) { %>
+                    <input type="hidden" value="<%= product.id %>" name="id">
+                <% } %>
+                <button type="submit">
+                    <% if(mode){%> Update Product
+                    <%} else {%>
+                    Add Product
+                    <% } %>
+                </button>
+            </div>
+        </div>
+    </form>
+</main>
+<%- include('../includes/foot.ejs') %>

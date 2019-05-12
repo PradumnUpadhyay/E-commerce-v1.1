@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+<%- include('../includes/routes.ejs') %>
+<main>
+  <% if(product.length > 0) { %>
+
+  <div class="grid">
+    <article class="card product-item">
+      <% for(let products of product){ %>
+      <header class="card__reader">
+        <h1 class="product__title"><%= products.title %> </h1>
+        <div class="main__div">
+          <img src="<%= products.imageURL %>" alt="<%= products.title %>">
+          <DIV class="card__content">
+            <h2 class="product__price"> $<%= products.price %> </h2>
+            <p class="product_description"> <%= products.description %> </p>
+          </DIV>
+          <div class="edit_cart">
+            <button onclick="location.href = '../admin/edit-product/<%= products.id %>?edit=false';"
+              class="btn">Edit</button>
+          </div>
+          <div class="delete_cart">
+            <form action="/admin/delete-product" method="POST">
+                <button class="btn">Delete</button>
+                <input type="hidden" name="id" value="<%= products.id %>">
+            </form>
+           
+          </div>
+
+        </div>
+      </header>
+      <% } %>
+    </article>
+    <% } else{ %>
+  </div>
+  <h1> No Products Yet...</h1>
+</main>
+<% } %>
+<%- include('../includes/foot.ejs') %>

@@ -1,0 +1,91 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.main-header{
+    width: 100%;
+    height: 3.5rem;
+    background-color: rgb(31, 108, 209);
+    padding: 0 1.5rem;
+}
+.main-header__item-list{
+list-style: none;
+padding: 0%;
+margin: 0%;
+display: flex;
+}
+.main-header__item{
+margin: 0% 1rem;
+padding: 0%;
+}
+.main-header__nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.main-header__item a{
+    text-decoration: none;
+    color: black;
+}
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active{
+color:brown;
+}
+
+main{
+padding: 1rem;
+
+}
+.form-control label,
+.form-control input,
+.form-control textarea
+{
+display: block; 
+width: 100%;
+}
+.form-control button{
+margin: 1rem 0; 
+}
+.form-control input,
+.form-control textarea
+{
+    border: 1px solid black;
+    font: inherit;
+    border-radius: 2px;
+
+}
+
+button{
+font: inherit;
+border: 1px solid rgb(31, 108, 209);
+color: rgb(31, 108, 209);
+background-color: white;
+border-radius: 3px 3px;
+cursor: pointer;
+}
+
+button:hover{
+background-color: rgb(31, 108, 209);
+color: white;
+
+}
+
+.product-form{
+width: 20rem;
+max-width: 90%;
+margin: auto;
+}
+
+input:hover,
+textarea:hover
+{
+    border:2px solid #c4b109f3;
+}
+.form-control input:focus,
+.form-control textarea:focus
+{
+outline-color: #c4b109f3
+}
